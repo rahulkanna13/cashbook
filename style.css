@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.overall {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* min-height: 100vh; */
+}
+
+.boxcontainer {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(120deg, #3dee46, #72af01);
+    width: 200px;
+    position: relative;
+    border-radius: 1rem;
+    padding: 25px 25px 25px 25px;
+    align-items: center;
+    flex: 1;
+}
+
+.boxcontainer input {
+    background: white;
+    border-radius: 6px;
+    border: none;
+}
+
+.boxcontainer button:hover {
+    background: rgb(45, 134, 250);
+}
+
+.boxcontainer input .boxcontainer label,
+input,
+button {
+    margin-top: 10px;
+}
+
+.dashboard {
+    background: #e7551c;
+    width: 30rem;
+    color: aliceblue;
+    font-weight: 15px;
+    font-size: 20px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+}
+
+.dashboard p {
+    padding: 20px;
+}
+
+#cinbalance {
+    color: rgb(253, 253, 253);
+}
+
+input[type=text]:focus {
+    background-color: lightblue;
+}
+
+.boxcontainer button {
+    border: 2px solid #09a811;
+    cursor: pointer;
+    background: transparent;
+}
+
+@media screen and (max-width:800px) {
+    body {
+        flex-direction: column;
+    }
+    .boxcontainer {
+        border: solid black 1px;
+    }
+    .dashboard {
+        padding: 0 0 0 20px;
+        width: 20rem;
+    }
+}
+
+.entrys {
+    display: grid;
+    background-color: #62e2f8;
+    width: 100%;
+    margin: 10px;
+    /* align-items: center; */
+    /* align-content: center; */
+    justify-content: center;
+}
