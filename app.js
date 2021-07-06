@@ -30,6 +30,7 @@ function genlist(event) {
             saveToLocal(boxvalue)
 
 
+
         }
     } else {
         const boxvalue = parseInt(textBox2.value)
@@ -47,12 +48,12 @@ function genlist(event) {
         }
     }
 }
-localStroage.
+
 
 
 function saveToLocal(boxvalue) {
     let entryArray
-    if () {
+    if (localStorage.getItem == null) {
 
         entryArray = []
 
