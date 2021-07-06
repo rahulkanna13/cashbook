@@ -1,7 +1,13 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
     box-sizing: border-box;
+    background: linear-gradient(145deg, rgb(195, 240, 200), rgb(80, 155, 245));
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
 }
 
 .overall {
@@ -14,11 +20,11 @@ body {
 .boxcontainer {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(120deg, #3dee46, #72af01);
+    background: #FABC41;
     width: 200px;
     position: relative;
     border-radius: 1rem;
-    padding: 25px 25px 25px 25px;
+    padding: 10px;
     align-items: center;
     flex: 1;
 }
@@ -27,10 +33,12 @@ body {
     background: white;
     border-radius: 6px;
     border: none;
+    outline: none;
 }
 
 .boxcontainer button:hover {
-    background: rgb(45, 134, 250);
+    background: #cf3e00;
+    border-radius: 0.5rem;
 }
 
 .boxcontainer input .boxcontainer label,
@@ -40,19 +48,19 @@ button {
 }
 
 .dashboard {
-    background: #e7551c;
-    width: 30rem;
+    background: #3A5795;
+    width: 100%;
     color: aliceblue;
     font-weight: 15px;
     font-size: 20px;
     display: flex;
     margin: auto;
     margin-bottom: 2rem;
-    border-radius: 1rem;
+    justify-content: center;
 }
 
 .dashboard p {
-    padding: 20px;
+    margin: 10px;
 }
 
 #cinbalance {
@@ -64,9 +72,11 @@ input[type=text]:focus {
 }
 
 .boxcontainer button {
-    border: 2px solid #09a811;
+    border: none;
     cursor: pointer;
-    background: transparent;
+    background: #E5642B;
+    border-radius: 0.5rem;
+    margin: 10px;
 }
 
 @media screen and (max-width:800px) {
@@ -82,12 +92,29 @@ input[type=text]:focus {
     }
 }
 
-.entrys {
-    display: grid;
-    background-color: #62e2f8;
-    width: 100%;
-    margin: 10px;
-    /* align-items: center; */
-    /* align-content: center; */
-    justify-content: center;
+.entryList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.list-item-expense {
+    background-color: #ff5a18;
+    margin: 1rem0000;
+}
+
+.list-item-expense::after {
+    content: ' rs expense ';
+}
+
+.list-item-income {
+    background-color: #78f054;
+}
+
+.list-item-income::after {
+    content: ' rs income ';
+}
+
+.history {
+    background: #78f054;
 }
