@@ -8,6 +8,7 @@ const histryDiv = document.querySelector(".entryList")
 const cashbal = document.querySelector("#cinbalance")
 
 //event listerners
+document.addEventListener('DOMContentLoaded', getEntry)
 button1.addEventListener('click', genlist)
 button2.addEventListener('click', genlist)
 
@@ -17,17 +18,13 @@ function genlist(event) {
     if (event.target.innerText == 'add') {
         const boxvalue = parseInt(textBox1.value)
         if (boxvalue) {
-            // const entrycontainer = document.createElement('div')
-            // entrycontainer.classList.add("entrys")
             const listItem = document.createElement('li')
             listItem.innerText = boxvalue
             listItem.classList.add('list-item-income')
-                // entrycontainer.appendChild(listItem)
-                // histryDiv.appendChild(entrycontainer)
             histryDiv.appendChild(listItem)
             cashInHand += boxvalue
             cashbal.innerText = cashInHand
-            saveToLocal(boxvalue)
+            saveToLocalincome(boxvalue)
 
 
 
@@ -35,29 +32,95 @@ function genlist(event) {
     } else {
         const boxvalue = parseInt(textBox2.value)
         if (boxvalue) {
-            // const entrycontainer = document.createElement('div')
-            // entrycontainer.classList.add("entrys")
             const listItem = document.createElement('li')
             listItem.innerText = boxvalue
             listItem.classList.add('list-item-expense')
-            entrycontainer.appendChild(listItem)
             histryDiv.appendChild(listItem)
             cashInHand -= boxvalue
             cashbal.innerText = cashInHand
-            saveToLocal(boxvalue)
+            saveToLocalexpense(boxvalue)
         }
     }
 }
 
 
 
-function saveToLocal(boxvalue) {
-    let entryArray
-    if (localStorage.getItem == null) {
+function saveToLocalincome(boxvalue) {
 
-        entryArray = []
+    let entryincomeArray
+    if (localStorage.getItem("entryincomeArray") === null) {
+
+        entryincomeArray = []
 
     } else {
+        entryincomeArray = JSON.parse(localStorage.getItem('entryincomeArray'))
+
 
     }
+    entryincomeArray.push(boxvalue)
+    localStorage.setItem("entryincomeArray", JSON.stringify(entryincomeArray))
+
+
 }
+
+function saveToLocalexpense(boxvalue) {
+    let entryexpenseArray
+    if (localStorage.getItem("entryexpenseArray") === null) {
+
+        entryexpenseArray = []
+
+    } else {
+        entryexpenseArray = JSON.parse(localStorage.getItem('entryexpenseArray'))
+
+    }
+    entryexpenseArray.push(boxvalue)
+    localStorage.setItem("entryexpenseArray", JSON.stringify(entryexpenseArray))
+
+}
+// localStorage.clear()
+
+function getEntry() {
+    let entryincomeArray
+    if (localStorage.getItem("entryincomeArray") === null) {
+
+        entryincomeArray = []
+
+    } else {
+        entryincomeArray = JSON.parse(localStorage.getItem('entryincomeArray'))
+
+    }
+    entryincomeArray.forEach(element => {
+        console.log('hello')
+        const listItem = document.createElement('li')
+        listItem.innerText = element
+        listItem.classList.add('list-item-income')
+        histryDiv.appendChild(listItem)
+        cashInHand += element
+        cashbal.innerText = cashInHand
+    });
+
+    //expense getentries
+    let entryexpenseArray
+    if (localStorage.getItem("entryexpenseArray") === null) {
+
+        entryexpenseArray = []
+
+    } else {
+        entryexpenseArray = JSON.parse(localStorage.getItem('entryexpenseArray'))
+
+    }
+    entryexpenseArray.forEach(element2 => {
+        const listItem = document.createElement('li')
+        listItem.innerText = element2
+        listItem.classList.add('list-item-expense')
+        histryDiv.appendChild(listItem)
+        cashInHand -= element2
+        cashbal.innerText = cashInHand
+
+    });
+
+
+
+}
+
+// localStorage.clear()
